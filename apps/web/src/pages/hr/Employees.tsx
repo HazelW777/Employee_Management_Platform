@@ -60,28 +60,32 @@ export default function Employees() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-h1 text-on-surface">Employees</h1>
-
-        <div className="relative w-72">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-on-surface-variant pointer-events-none" />
-          <input
-            type="text"
-            placeholder="Search by name"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="flex h-10 w-full rounded-md border border-input bg-background pl-9 pr-9 py-2 text-body-sm ring-offset-background placeholder:text-on-surface-variant focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          />
-          {search && (
-            <button
-              type="button"
-              onClick={() => setSearch("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          )}
+      <div className="flex flex-col gap-3">
+        <div className="flex items-center justify-between">
+          <h1 className="text-h1 text-on-surface">Employees</h1>
+          <div className="relative w-72">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-on-surface-variant pointer-events-none" />
+            <input
+              type="text"
+              placeholder="Search by name"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="flex h-10 w-full rounded-md border border-input bg-background pl-9 pr-9 py-2 text-body-sm ring-offset-background placeholder:text-on-surface-variant focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            />
+            {search && (
+              <button
+                type="button"
+                onClick={() => setSearch("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
         </div>
+        <p className="text-body-md text-on-surface-variant">
+          Total employees: {data.length}
+        </p>
       </div>
 
       <div className="rounded-lg border border-border bg-card overflow-hidden">
